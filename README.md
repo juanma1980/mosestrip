@@ -26,3 +26,12 @@ Available options:
 * Border color: ...
 * Border opacity: Adjustable from 0 (transparent) to 100 (opaque)
 * Fill screen: If this option is enabled then the border will fill all the screen around the strip.
+
+## Screenshots
+
+![imatge](https://github.com/juanma1980/mousestrip/assets/15210634/5cf118dd-b68a-47ae-9ad0-c70efd647b09)
+
+![imatge](https://github.com/juanma1980/mousestrip/assets/15210634/9b832ac2-08e8-40e8-bee2-fd24c4f9aea0)
+
+![imatge](https://github.com/juanma1980/mousestrip/assets/15210634/15ed19c6-890f-4120-96a7-25355b88339d)
+
