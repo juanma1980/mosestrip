@@ -7,9 +7,9 @@ The main purpose is to help focusing on the zone of the screen where the pointer
 Clone the repo and install the content of src/ with kpackagetool
 
 ```
-cd $HOME
-mkdir git_mousestrip
-cd git_mousestrip
+cd /tmp
+git clone https://github.com/juanma1980/mousestrip/
+cd mousestrip
 kpackagetool5 --install src/
 ````
 
