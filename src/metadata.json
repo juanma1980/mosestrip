@@ -1,0 +1,25 @@
+{
+    "KPackageStructure": "KWin/Script",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "juanma1980@gmail.com",
+                "Name": "Juanma1980"
+            }
+        ],
+        "Description": "Displays a reading guide over mouse position",
+        "Description[es]": "Muestra una línea a modo de guía en la posición del puntero",
+        "Description[ca]": "Mostra una línia a mode de guía a la posició del punter",
+        "Icon": "mousestrip",
+        "Id": "mousestrip",
+        "License": "GPL",
+        "Name": "Read aid",
+        "Name[es]": "Ayudante de lectura",
+        "Name[ca]": "Ajudant de lectura",
+        "Version": "1.0"
+    },
+    "X-KWin-Exclude-Listing": "true",
+    "X-Plasma-API": "declarativescript",
+    "X-KDE-ConfigModule": "kwin/effects/configs/kcm_kwin4_genericscripted",
+    "X-Plasma-MainScript": "ui/main.qml"
+}
