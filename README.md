@@ -20,8 +20,8 @@ Configuration options are available at systemsettings->window management->kwin s
 Available options:
 
 * Strip height: Amount of lines for the strip, from 1 to 5. Each line is 48px.
-* Strip color: Color for the strip. **Light colors could decrease a lot readability**
-* Strip opacity: Adjustable from 0 (transparent) to 50. **High values could decrease a lot readability**
+* Strip color: Color for the strip. **Light colors could have a big decrease in readability**
+* Strip opacity: Adjustable from 0 (transparent) to 50. **High values could decrease readability**
 * Border height: Height of the border around the strip
 * Border color: ...
 * Border opacity: Adjustable from 0 (transparent) to 100 (opaque)
