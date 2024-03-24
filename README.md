@@ -15,9 +15,10 @@ kpackagetool5 --install src/
 
 ## Configure
 
-Configure for the script is available at systemsettings->window management->kwin scripts.
+Configuration options are available at systemsettings->window management->kwin scripts.
 
-Avaible options are:
+Available options:
+
 * Strip height: Amount of lines for the strip, from 1 to 5. Each line is 48px.
 * Strip color: Color for the strip. **Light colors could decrease a lot readability**
 * Strip opacity: Adjustable from 0 (transparent) to 50. **High values could decrease a lot readability**
