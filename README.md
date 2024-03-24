@@ -17,6 +17,9 @@ kpackagetool5 --install src/
 
 Configuration options are available at systemsettings->window management->kwin scripts.
 
+![imatge](https://github.com/juanma1980/mousestrip/assets/15210634/c8e93ef0-ddc5-4ae2-bba3-fe98e3b7415a)
+
+
 Available options:
 
 * Strip height: Amount of lines for the strip, from 1 to 5. Each line is 48px.
@@ -34,9 +37,12 @@ Available options:
   
 ## Screenshots
 
+Border height: 16 px. Border color: yellow. Strip color: red. Strip opacity: 30%
 ![imatge](https://github.com/juanma1980/mousestrip/assets/15210634/5cf118dd-b68a-47ae-9ad0-c70efd647b09)
 
+Enable fill screen
 ![imatge](https://github.com/juanma1980/mousestrip/assets/15210634/9b832ac2-08e8-40e8-bee2-fd24c4f9aea0)
 
+Border height: Fill. Border color: black. Border opacity: 50%. Strip color: black. Strip opacity: 15%
 ![imatge](https://github.com/juanma1980/mousestrip/assets/15210634/15ed19c6-890f-4120-96a7-25355b88339d)
 
