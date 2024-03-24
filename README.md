@@ -4,9 +4,10 @@ The main purpose is to help focusing in the zone of the screen where the pointer
 
 ## Install
 
-Clone the repo and install the content of src/ to $HOME/.local/share/kwin/scripts/mousestrip
+Clone the repo and install the content of src/ with kpackagetool
 
-```cd $HOME
+```
+cd $HOME
 mkdir git_mousestrip
 cd git_mousestrip
 kpackagetool5 --install src/
