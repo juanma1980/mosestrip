@@ -1,5 +1,5 @@
 /*
-	This script is part of the Lliurex Project 
+    This script is part of the Lliurex Project 
     SPDX-FileCopyrightText: 2024 juanma1980 <juanma1980@gmail.com>
     SPDX-License-Identifier: GPL-3.0
 */
@@ -13,8 +13,8 @@ PlasmaCore.Dialog {
     location: PlasmaCore.Types.Floating
     visible: true
     flags: Qt.X11BypassWindowManagerHint | Qt.FramelessWindowHint
-	color:"black"
-	y:0
+    color:"black"
+    y:0
     width: Screen.width
     height: 16
     outputOnly: true

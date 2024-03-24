@@ -1,5 +1,5 @@
 /*
-	This script is part of the Lliurex Project 
+    This script is part of the Lliurex Project 
     SPDX-FileCopyrightText: 2024 juanma1980 <juanma1980@gmail.com>
     SPDX-License-Identifier: GPL-3.0
 */
