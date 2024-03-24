@@ -1,6 +1,6 @@
 # mousestrip (KWin script)
 Kwin script that displays a read strip around the mouse.
-The main purpose is to help focusing on the zone of the screen where the pointer is located. This is an aid for improving attemption-related or color perception issues when working with a computer.
+The main purpose is to help focusing attention on the zone of the screen where the pointer is located. This is an aid for improving attention-related or color perception issues when working with a computer.
 
 ## Install
 
