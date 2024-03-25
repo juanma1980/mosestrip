@@ -10,7 +10,7 @@
         "Description": "Displays a reading guide over mouse position",
         "Description[es]": "Muestra una línea a modo de guía en la posición del puntero",
         "Description[ca]": "Mostra una línia a mode de guía a la posició del punter",
-        "Icon": "mousestrip",
+        "Icon": "preferences-system-windows",
         "Id": "mousestrip",
         "License": "GPL",
         "Name": "Read aid",
