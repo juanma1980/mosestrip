@@ -13,6 +13,10 @@ cd mousestrip
 kpackagetool5 --install src/
 ````
 
+After enabled the visiblity of the strip is controlled with Ctrl+Meta+M (meta is also knowed as "win key").
+
+For changes to be applied is mandatory - until implemented - to disable/enable the script.
+
 ## Configure
 
 Configuration options are available at systemsettings->window management->kwin scripts.
@@ -34,7 +38,6 @@ Available options:
 
 ## ToDo
 
-* Add hotkey
 * Apply changes
   
 ## Screenshots
