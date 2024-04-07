@@ -63,19 +63,22 @@ Item {
            readConfig();
            mainItemLoaderTop.source = "border.qml";
            BorderStripTop=mainItemLoaderTop.item;
-           BorderStripTop.height=borderHeight
-           BorderStripTop.color=rBorderColor
+           BorderStripTop.height=borderHeight;
+           BorderStripTop.color=rBorderColor;
            BorderStripTop.opacity=borderOpacity/100;
-           BorderStripTop.y=0
+           BorderStripTop.y=0;
+           BorderStripTop.width= workspace.workspaceWidth;
            mainItemLoaderBottom.source = "borderB.qml";
            BorderStripBottom=mainItemLoaderBottom.item;
            BorderStripBottom.height=borderHeight;
            BorderStripBottom.color=rBorderColor;
            BorderStripBottom.opacity=borderOpacity/100;
+           BorderStripBottom.width= workspace.workspaceWidth;
            mainItemLoader.source = "stripe.qml";
            ReadStrip=mainItemLoader.item;
            ReadStrip.color=root.rColor;
            ReadStrip.height=48*root.stripHeight;
+           ReadStrip.width= workspace.workspaceWidth;
        }
        ReadStrip=mainItemLoader.item
        BorderStripTop=mainItemLoaderTop.item

@@ -16,7 +16,7 @@ PlasmaCore.Dialog {
     color:"black"
     y:0
     //width: Screen.width
-    width: workspace.workspaceWidth
+    width: 0 // workspace.workspaceWidth
     height: 16
     outputOnly: true
     Component.onCompleted: {
