@@ -13,8 +13,8 @@ PlasmaCore.Dialog {
     location: PlasmaCore.Types.Floating
     visible: true
     flags: Qt.X11BypassWindowManagerHint | Qt.FramelessWindowHint | Qt.WA_TranslucentBackground
-    width: Screen.width
-    height: Screen.height
+    width: workspace.workspaceWidth
+    height: workspace.workspaceHeight //workspace.activeClient.geometry.height //Screen.height
     outputOnly: true
     Component.onCompleted: {
         strip.show();

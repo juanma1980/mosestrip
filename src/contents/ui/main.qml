@@ -85,7 +85,7 @@ Item {
        if (fillBorder==true)
        {
            BorderStripTop.height=ReadStrip.y
-           BorderStripBottom.height=Screen.height-BorderStripBottom.y
+           BorderStripBottom.height=workspace.workspaceHeight-BorderStripBottom.y
        } else {
            BorderStripTop.y=ReadStrip.y-borderHeight
            BorderStripBottom.y=ReadStrip.height+ReadStrip.y
