@@ -15,7 +15,8 @@ PlasmaCore.Dialog {
     flags: Qt.X11BypassWindowManagerHint | Qt.FramelessWindowHint
     color:"black"
     y:0
-    width: Screen.width
+    //width: Screen.width
+    width: workspace.workspaceWidth
     height: 16
     outputOnly: true
     Component.onCompleted: {
