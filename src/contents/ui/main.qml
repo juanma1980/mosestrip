@@ -41,7 +41,7 @@ Item {
         mainItemLoader.source="";
         mainItemLoaderTop.source="";
         mainItemLoaderBottom.source="";
-		readConfig();
+		moveStrip();
         root.show=show
     }
     
@@ -130,5 +130,6 @@ Item {
 
     Component.onCompleted: {
         KWin.registerShortcut("Toggle Mouse Strip", "Toggle Mouse Strip", "Ctrl+Meta+M", function() {  reloadStrip(!show); }); 
+		reloadStrip(true);
     }
 }
