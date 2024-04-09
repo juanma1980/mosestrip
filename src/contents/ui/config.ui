@@ -125,7 +125,15 @@
         <string>Fill screen with border</string>
        </property>
       </widget>
-     </item>
+    </item>
+	<item row="5" column="0">
+      <widget class="QLabel" name="label" >
+        <property name="text">
+         <string>Changes apply only after disabling and re-enabling the script</string>
+  		</property>
+  	  </widget>
+    </item>
+
   </layout>
  </widget>
  <customwidgets>
