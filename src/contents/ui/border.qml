@@ -23,5 +23,4 @@ PlasmaCore.Dialog {
         borderTop.show();
         KWin.registerWindow(borderTop);
     }
-
 }
