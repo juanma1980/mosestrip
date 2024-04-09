@@ -16,6 +16,7 @@ PlasmaCore.Dialog {
     width: 0 //workspace.workspaceWidth
     height: 0 //workspace.workspaceHeight //workspace.activeClient.geometry.height //Screen.height
     outputOnly: true
+
     Component.onCompleted: {
         strip.show();
         KWin.registerWindow(strip);

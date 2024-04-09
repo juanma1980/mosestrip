@@ -7,6 +7,7 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
+import org.kde.kirigami 2.12 as Kirigami
 import org.kde.kwin 2.0 as KWinComponents
 
 Item {
@@ -40,6 +41,7 @@ Item {
         mainItemLoader.source="";
         mainItemLoaderTop.source="";
         mainItemLoaderBottom.source="";
+		readConfig();
         root.show=show
     }
     
@@ -55,30 +57,41 @@ Item {
         fillBorder= KWin.readConfig("FillBorder",false);
     }
 
+    function updateConfig(){
+		print("");
+    }
+
+    function applyConfig(){
+       var ReadStrip;
+       var BorderStripTop;
+       var BorderStripBottom;
+       readConfig();
+       mainItemLoaderTop.source = "border.qml";
+       BorderStripTop=mainItemLoaderTop.item;
+       BorderStripTop.height=borderHeight;
+       BorderStripTop.color=rBorderColor;
+       BorderStripTop.opacity=borderOpacity/100;
+       BorderStripTop.y=0;
+       BorderStripTop.width= workspace.workspaceWidth;
+       mainItemLoaderBottom.source = "borderB.qml";
+       BorderStripBottom=mainItemLoaderBottom.item;
+       BorderStripBottom.height=borderHeight;
+       BorderStripBottom.color=rBorderColor;
+       BorderStripBottom.opacity=borderOpacity/100;
+       BorderStripBottom.width= workspace.workspaceWidth;
+       mainItemLoader.source = "stripe.qml";
+       ReadStrip=mainItemLoader.item;
+       ReadStrip.color=root.rColor;
+       ReadStrip.height=Kirigami.Units.gridUnit*2*root.stripHeight;
+       ReadStrip.width= workspace.workspaceWidth;
+    }
+
     function moveStrip(){
        var ReadStrip;
        var BorderStripTop;
        var BorderStripBottom;
        if (!mainItemLoader.item) {
-           readConfig();
-           mainItemLoaderTop.source = "border.qml";
-           BorderStripTop=mainItemLoaderTop.item;
-           BorderStripTop.height=borderHeight;
-           BorderStripTop.color=rBorderColor;
-           BorderStripTop.opacity=borderOpacity/100;
-           BorderStripTop.y=0;
-           BorderStripTop.width= workspace.workspaceWidth;
-           mainItemLoaderBottom.source = "borderB.qml";
-           BorderStripBottom=mainItemLoaderBottom.item;
-           BorderStripBottom.height=borderHeight;
-           BorderStripBottom.color=rBorderColor;
-           BorderStripBottom.opacity=borderOpacity/100;
-           BorderStripBottom.width= workspace.workspaceWidth;
-           mainItemLoader.source = "stripe.qml";
-           ReadStrip=mainItemLoader.item;
-           ReadStrip.color=root.rColor;
-           ReadStrip.height=48*root.stripHeight;
-           ReadStrip.width= workspace.workspaceWidth;
+	       applyConfig();
        }
        ReadStrip=mainItemLoader.item
        BorderStripTop=mainItemLoaderTop.item
@@ -95,9 +108,10 @@ Item {
        }
     }
 
-    KWinComponents.DBusCall {
-        id: kwinReconfigure
-        service: "org.kde.KWin"; path: "/KWin"; method: "reconfigure";
+
+    Connections {
+        target: options
+        function onConfigChanged() { updateConfig(); }
     }
 
     Connections {
@@ -109,9 +123,9 @@ Item {
         }
     }
 
- Connections {
-        target: options
-        function onConfigChanged() { readConfig(); }
+    KWinComponents.DBusCall {
+        id: kwinReconfigure
+        service: "org.kde.KWin"; path: "/KWin"; method: "reconfigure";
     }
 
     Component.onCompleted: {
