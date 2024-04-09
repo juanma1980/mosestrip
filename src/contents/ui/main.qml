@@ -41,7 +41,7 @@ Item {
         mainItemLoader.source="";
         mainItemLoaderTop.source="";
         mainItemLoaderBottom.source="";
-		moveStrip();
+        moveStrip();
         root.show=show
     }
     
@@ -58,7 +58,7 @@ Item {
     }
 
     function updateConfig(){
-		print("");
+        print("");
     }
 
     function applyConfig(){
@@ -91,20 +91,20 @@ Item {
        var BorderStripTop;
        var BorderStripBottom;
        if (!mainItemLoader.item) {
-	       applyConfig();
+           applyConfig();
        }
-       ReadStrip=mainItemLoader.item
-       BorderStripTop=mainItemLoaderTop.item
-       BorderStripBottom=mainItemLoaderBottom.item
-       ReadStrip.y=workspace.cursorPos.y-(ReadStrip.height/2)
-       BorderStripBottom.y=ReadStrip.height+ReadStrip.y
+       ReadStrip=mainItemLoader.item;
+       BorderStripTop=mainItemLoaderTop.item;
+       BorderStripBottom=mainItemLoaderBottom.item;
+       ReadStrip.y=workspace.cursorPos.y-(ReadStrip.height*0.5);
+       BorderStripBottom.y=ReadStrip.height+ReadStrip.y;
        if (fillBorder==true)
        {
-           BorderStripTop.height=ReadStrip.y
-           BorderStripBottom.height=workspace.workspaceHeight-BorderStripBottom.y
+           BorderStripTop.height=ReadStrip.y;
+           BorderStripBottom.height=workspace.workspaceHeight-BorderStripBottom.y;
        } else {
-           BorderStripTop.y=ReadStrip.y-borderHeight
-           BorderStripBottom.y=ReadStrip.height+ReadStrip.y
+           BorderStripTop.y=ReadStrip.y-borderHeight;
+           BorderStripBottom.y=ReadStrip.height+ReadStrip.y;
        }
     }
 
@@ -117,7 +117,7 @@ Item {
     Connections {
         target: workspace
         function onCursorPosChanged() {
-			if (show==true){
+            if (show==true){
                 moveStrip();
             }
         }
@@ -130,6 +130,6 @@ Item {
 
     Component.onCompleted: {
         KWin.registerShortcut("Toggle Mouse Strip", "Toggle Mouse Strip", "Ctrl+Meta+M", function() {  reloadStrip(!show); }); 
-		reloadStrip(true);
+        reloadStrip(true);
     }
 }
