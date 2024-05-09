@@ -1,3 +1,9 @@
+mousestrip (1.1.0) jammy; urgency=medium
+
+  * Wayland support
+
+ -- Juanma1980 <juanma1980@gmail.com>  Thu, 09 May 2024 10:48:40 +0200
+
 mousestrip (1.0.1) jammy; urgency=medium
 
   * Initial release. 
