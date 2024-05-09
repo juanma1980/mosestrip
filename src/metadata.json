@@ -16,7 +16,7 @@
         "Name": "Read aid",
         "Name[es]": "Ayudante de lectura",
         "Name[ca]": "Ajudant de lectura",
-        "Version": "1.0.1"
+        "Version": "1.1"
     },
     "X-KWin-Exclude-Listing": "true",
     "X-Plasma-API": "declarativescript",
