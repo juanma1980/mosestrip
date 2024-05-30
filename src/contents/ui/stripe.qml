@@ -5,21 +5,20 @@
 */
 import QtQuick 2.0;
 import QtQuick.Window 2.0;
-import org.kde.plasma.core 2.0 as PlasmaCore;
-import org.kde.kwin 2.0;
 
-PlasmaCore.Dialog {
-    id: strip
-    location: PlasmaCore.Types.Floating
-    visible: true
-    flags: Qt.X11BypassWindowManagerHint | Qt.FramelessWindowHint | Qt.WindowTransparentForInput
-    width: 0 //workspace.workspaceWidth
-    height: 0 //workspace.workspaceHeight //workspace.activeClient.geometry.height //Screen.height
-    outputOnly: true
-
+Window {
+		id: strip
+		color:Qt.rgba(0,0,0,0)
+		flags:Qt.FrameLessHint|Qt.WindowStaysOnTopHint|Qt.WindowSystemMenuHint| Qt.X11BypassWindowManagerHint | Qt.FramelessWindowHint| Qt.WindowTransparentForInput| Qt.TransparentForMouseEvents|Qt.OnScreenDisplay
+		property bool outputOnly:true
+		visible: false
+		Rectangle {
+			id:rect
+			anchors.fill:parent
+			color:strip.color
+			visible:true
+		}
     Component.onCompleted: {
         strip.show();
-        KWin.registerWindow(strip);
     }
-
 }
