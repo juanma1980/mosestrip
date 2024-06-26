@@ -1,4 +1,4 @@
-mousestrip (1.2) jammy; urgency=medium
+kwin-script-mousestrip (1.2-0lliurex23) jammy; urgency=medium
 
   * Use Qt.Window instead of kwin.Dialog
 

@@ -1,4 +1,4 @@
-Source: mousestrip
+Source: kwin-script-mousestrip
 Section: admin
 Priority: optional
 Maintainer: Equipo LliureX <lliurex@gva.es>
@@ -7,8 +7,11 @@ Build-Depends: debhelper (>= 9.0)
 Standards-Version: 3.9.5
 Homepage: https://github.com/murat-cileli/kwin-grayscale-effect
 
-Package: mousestrip
+Package: kwin-script-mousestrip
 Architecture: all
+Conflicts:mousestrip
+Replaces:mousestrip
+Provides:mousestrip
 Depends: kwin-addons
 Description: Script for KWin that shows a strip along the screen for improving readability
 
