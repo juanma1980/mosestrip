@@ -12,6 +12,6 @@ Architecture: all
 Conflicts:mousestrip
 Replaces:mousestrip
 Provides:mousestrip
-Depends: kwin-addons,libkf5widgetsaddons-dev
+Depends: kwin-addons,kf6-kwidgetsaddons-dev
 Description: Script for KWin that shows a strip along the screen for improving readability
 
