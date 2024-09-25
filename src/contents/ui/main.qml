@@ -8,7 +8,7 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
 import org.kde.kirigami 2.12 as Kirigami
-import org.kde.kwin 2.0 as KWinComponents
+import org.kde.kwin 3.0 as KWinComponents
 
 Item {
     id: root
@@ -72,18 +72,18 @@ Item {
        BorderStripTop.color=rBorderColor;
        BorderStripTop.opacity=borderOpacity/100;
        BorderStripTop.y=0;
-       BorderStripTop.width= workspace.workspaceWidth;
+       BorderStripTop.width= KWinComponents.Workspace.workspaceWidth;
        mainItemLoaderBottom.source = "borderB.qml";
        BorderStripBottom=mainItemLoaderBottom.item;
        BorderStripBottom.height=borderHeight;
        BorderStripBottom.color=rBorderColor;
        BorderStripBottom.opacity=borderOpacity/100;
-       BorderStripBottom.width= workspace.workspaceWidth;
+       BorderStripBottom.width= KWinComponents.Workspace.workspaceWidth;
        mainItemLoader.source = "stripe.qml";
        ReadStrip=mainItemLoader.item;
        ReadStrip.color=root.rColor;
        ReadStrip.height=Kirigami.Units.gridUnit*2*root.stripHeight;
-       ReadStrip.width= workspace.workspaceWidth;
+       ReadStrip.width= KWinComponents.Workspace.workspaceWidth;
     }
 
     function moveStrip(){
@@ -96,12 +96,12 @@ Item {
        ReadStrip=mainItemLoader.item;
        BorderStripTop=mainItemLoaderTop.item;
        BorderStripBottom=mainItemLoaderBottom.item;
-       ReadStrip.y=workspace.cursorPos.y-(ReadStrip.height*0.5);
+       ReadStrip.y=KWinComponents.Workspace.cursorPos.y-(ReadStrip.height*0.5);
        BorderStripBottom.y=ReadStrip.height+ReadStrip.y;
        if (fillBorder==true)
        {
            BorderStripTop.height=ReadStrip.y;
-           BorderStripBottom.height=workspace.workspaceHeight-BorderStripBottom.y;
+           BorderStripBottom.height=KWinComponents.Workspace.workspaceHeight-BorderStripBottom.y;
        } else {
            BorderStripTop.y=ReadStrip.y-borderHeight;
            BorderStripBottom.y=ReadStrip.height+ReadStrip.y;
@@ -110,12 +110,12 @@ Item {
 
 
     Connections {
-        target: options
+        target: KWinComponents.Options
         function onConfigChanged() { updateConfig(); }
     }
 
     Connections {
-        target: workspace
+        target: KWinComponents.Workspace
         function onCursorPosChanged() {
             if (show==true){
                 moveStrip();
