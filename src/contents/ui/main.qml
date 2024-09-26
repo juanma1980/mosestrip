@@ -41,8 +41,9 @@ Item {
         mainItemLoader.source="";
         mainItemLoaderTop.source="";
         mainItemLoaderBottom.source="";
-        moveStrip();
-        root.show=show
+		if (show==true)
+        	moveStrip();
+        root.show=show;
     }
     
     function readConfig(){
@@ -128,8 +129,15 @@ Item {
         service: "org.kde.KWin"; path: "/KWin"; method: "reconfigure";
     }
 
+	KWinComponents.ShortcutHandler {
+		name: "Toggle MouseStrip"
+		text: "Shows or hides MouseStrip"
+		sequence: 'Meta+Ctrl+M'
+		onActivated: reloadStrip(!show)
+	}
+
     Component.onCompleted: {
-        KWin.registerShortcut("Toggle Mouse Strip", "Toggle Mouse Strip", "Ctrl+Meta+M", function() {  reloadStrip(!show); }); 
+       // KWin.registerShortcut("Toggle Mouse Strip", "Toggle Mouse Strip", "Ctrl+Meta+M", function() {  reloadStrip(!show); }); 
         reloadStrip(true);
     }
 }
