@@ -49,17 +49,21 @@ Item {
     function readConfig(){
         bkgColor= KWin.readConfig("BackgroundColor",Qt.rgba(0,0,1,0.1));
         stripOpacity= KWin.readConfig("StripOpacity",20);
+		if (stripOpacity>99)
+			stripOpacity=99;
         rColor=Qt.rgba(bkgColor.r,bkgColor.g,bkgColor.b,stripOpacity/100);
         stripHeight= KWin.readConfig("StripHeight",3);
         borderColor= KWin.readConfig("BorderColor",Qt.rgba(0,0,1,0.1));
         borderOpacity= KWin.readConfig("BorderOpacity",20);
+		if (borderOpacity>99)
+			borderOpacity=99;
         rBorderColor=Qt.rgba(borderColor.r,borderColor.g,borderColor.b,borderOpacity/100);
         borderHeight= KWin.readConfig("BorderHeight",2);
         fillBorder= KWin.readConfig("FillBorder",false);
     }
 
     function updateConfig(){
-        print("");
+		console.log("**** UPDATE ****")
     }
 
     function applyConfig(){
