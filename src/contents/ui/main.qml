@@ -49,14 +49,12 @@ Item {
     function readConfig(){
         bkgColor= KWin.readConfig("BackgroundColor",Qt.rgba(0,0,1,0.1));
         stripOpacity= KWin.readConfig("StripOpacity",20);
-		if (stripOpacity>99)
-			stripOpacity=99;
         rColor=Qt.rgba(bkgColor.r,bkgColor.g,bkgColor.b,stripOpacity/100);
         stripHeight= KWin.readConfig("StripHeight",3);
         borderColor= KWin.readConfig("BorderColor",Qt.rgba(0,0,1,0.1));
         borderOpacity= KWin.readConfig("BorderOpacity",20);
-		if (borderOpacity>99)
-			borderOpacity=99;
+        if (borderOpacity>99)
+           borderOpacity=99;
         rBorderColor=Qt.rgba(borderColor.r,borderColor.g,borderColor.b,borderOpacity/100);
         borderHeight= KWin.readConfig("BorderHeight",2);
         fillBorder= KWin.readConfig("FillBorder",false);
@@ -75,14 +73,12 @@ Item {
        BorderStripTop=mainItemLoaderTop.item;
        BorderStripTop.height=borderHeight;
        BorderStripTop.color=rBorderColor;
-       BorderStripTop.opacity=borderOpacity/100;
        BorderStripTop.y=0;
        BorderStripTop.width= KWinComponents.Workspace.workspaceWidth;
        mainItemLoaderBottom.source = "borderB.qml";
        BorderStripBottom=mainItemLoaderBottom.item;
        BorderStripBottom.height=borderHeight;
        BorderStripBottom.color=rBorderColor;
-       BorderStripBottom.opacity=borderOpacity/100;
        BorderStripBottom.width= KWinComponents.Workspace.workspaceWidth;
        mainItemLoader.source = "stripe.qml";
        ReadStrip=mainItemLoader.item;
@@ -133,12 +129,6 @@ Item {
         service: "org.kde.KWin"; path: "/KWin"; method: "reconfigure";
     }
 
-	KWinComponents.ShortcutHandler {
-		name: "Toggle MouseStrip"
-		text: "Shows or hides MouseStrip"
-		sequence: 'Meta+Ctrl+M'
-		onActivated: reloadStrip(!show)
-	}
 
     Component.onCompleted: {
        // KWin.registerShortcut("Toggle Mouse Strip", "Toggle Mouse Strip", "Ctrl+Meta+M", function() {  reloadStrip(!show); }); 
