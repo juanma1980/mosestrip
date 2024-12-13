@@ -8,7 +8,7 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
 import org.kde.kirigami 2.12 as Kirigami
-import org.kde.kwin 2.0 as KWinComponents
+import org.kde.kwin 3.0 as KWinComponents
 
 Item {
     id: root
@@ -41,24 +41,29 @@ Item {
         mainItemLoader.source="";
         mainItemLoaderTop.source="";
         mainItemLoaderBottom.source="";
-        moveStrip();
-        root.show=show
+		if (show==true)
+        	moveStrip();
+        root.show=show;
     }
     
     function readConfig(){
         bkgColor= KWin.readConfig("BackgroundColor",Qt.rgba(0,0,1,0.1));
         stripOpacity= KWin.readConfig("StripOpacity",20);
+		if (stripOpacity>99)
+			stripOpacity=99;
         rColor=Qt.rgba(bkgColor.r,bkgColor.g,bkgColor.b,stripOpacity/100);
         stripHeight= KWin.readConfig("StripHeight",3);
         borderColor= KWin.readConfig("BorderColor",Qt.rgba(0,0,1,0.1));
         borderOpacity= KWin.readConfig("BorderOpacity",20);
+		if (borderOpacity>99)
+			borderOpacity=99;
         rBorderColor=Qt.rgba(borderColor.r,borderColor.g,borderColor.b,borderOpacity/100);
         borderHeight= KWin.readConfig("BorderHeight",2);
         fillBorder= KWin.readConfig("FillBorder",false);
     }
 
     function updateConfig(){
-        print("");
+		console.log("**** UPDATE ****")
     }
 
     function applyConfig(){
@@ -72,18 +77,18 @@ Item {
        BorderStripTop.color=rBorderColor;
        BorderStripTop.opacity=borderOpacity/100;
        BorderStripTop.y=0;
-       BorderStripTop.width= workspace.workspaceWidth;
+       BorderStripTop.width= KWinComponents.Workspace.workspaceWidth;
        mainItemLoaderBottom.source = "borderB.qml";
        BorderStripBottom=mainItemLoaderBottom.item;
        BorderStripBottom.height=borderHeight;
        BorderStripBottom.color=rBorderColor;
        BorderStripBottom.opacity=borderOpacity/100;
-       BorderStripBottom.width= workspace.workspaceWidth;
+       BorderStripBottom.width= KWinComponents.Workspace.workspaceWidth;
        mainItemLoader.source = "stripe.qml";
        ReadStrip=mainItemLoader.item;
        ReadStrip.color=root.rColor;
        ReadStrip.height=Kirigami.Units.gridUnit*2*root.stripHeight;
-       ReadStrip.width= workspace.workspaceWidth;
+       ReadStrip.width= KWinComponents.Workspace.workspaceWidth;
     }
 
     function moveStrip(){
@@ -96,12 +101,12 @@ Item {
        ReadStrip=mainItemLoader.item;
        BorderStripTop=mainItemLoaderTop.item;
        BorderStripBottom=mainItemLoaderBottom.item;
-       ReadStrip.y=workspace.cursorPos.y-(ReadStrip.height*0.5);
+       ReadStrip.y=KWinComponents.Workspace.cursorPos.y-(ReadStrip.height*0.5);
        BorderStripBottom.y=ReadStrip.height+ReadStrip.y;
        if (fillBorder==true)
        {
            BorderStripTop.height=ReadStrip.y;
-           BorderStripBottom.height=workspace.workspaceHeight-BorderStripBottom.y;
+           BorderStripBottom.height=KWinComponents.Workspace.workspaceHeight-BorderStripBottom.y;
        } else {
            BorderStripTop.y=ReadStrip.y-borderHeight;
            BorderStripBottom.y=ReadStrip.height+ReadStrip.y;
@@ -110,12 +115,12 @@ Item {
 
 
     Connections {
-        target: options
+        target: KWinComponents.Options
         function onConfigChanged() { updateConfig(); }
     }
 
     Connections {
-        target: workspace
+        target: KWinComponents.Workspace
         function onCursorPosChanged() {
             if (show==true){
                 moveStrip();
@@ -128,8 +133,15 @@ Item {
         service: "org.kde.KWin"; path: "/KWin"; method: "reconfigure";
     }
 
+	KWinComponents.ShortcutHandler {
+		name: "Toggle MouseStrip"
+		text: "Shows or hides MouseStrip"
+		sequence: 'Meta+Ctrl+M'
+		onActivated: reloadStrip(!show)
+	}
+
     Component.onCompleted: {
-        KWin.registerShortcut("Toggle Mouse Strip", "Toggle Mouse Strip", "Ctrl+Meta+M", function() {  reloadStrip(!show); }); 
+       // KWin.registerShortcut("Toggle Mouse Strip", "Toggle Mouse Strip", "Ctrl+Meta+M", function() {  reloadStrip(!show); }); 
         reloadStrip(true);
     }
 }
