@@ -53,6 +53,7 @@ Item {
         stripHeight= KWin.readConfig("StripHeight",3);
         borderColor= KWin.readConfig("BorderColor",Qt.rgba(0,0,1,0.1));
         borderOpacity= KWin.readConfig("BorderOpacity",20);
+		/* If set to 100 graphics get corrupted */
         if (borderOpacity>99)
            borderOpacity=99;
         rBorderColor=Qt.rgba(borderColor.r,borderColor.g,borderColor.b,borderOpacity/100);
