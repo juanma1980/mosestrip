@@ -21,5 +21,6 @@
     "X-KWin-Exclude-Listing": "true",
     "X-Plasma-API": "declarativescript",
     "X-KDE-ConfigModule": "kwin/effects/configs/kcm_kwin4_genericscripted",
+	"X-KWin-Config-TranslationDomain": "mousestrip",
     "X-Plasma-MainScript": "ui/main.qml"
 }
